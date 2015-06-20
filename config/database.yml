@@ -49,6 +49,6 @@ test:
 #
 production:
   <<: *default
-  database: tunescart_production
+  database: tunescart
   username: tunescart
-  password: <%= ENV['TUNESCART_DATABASE_PASSWORD'] %>
+  password: tunescart
