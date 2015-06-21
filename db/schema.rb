@@ -11,7 +11,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150620163521) do
+ActiveRecord::Schema.define(version: 20150621013531) do
+
+  create_table "albums", force: :cascade do |t|
+    t.integer "user_id", limit: 4
+  end
+
+  create_table "coupons", force: :cascade do |t|
+    t.integer "album_id", limit: 4
+    t.string  "code",     limit: 255
+    t.boolean "used",     limit: 1,   default: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email",           limit: 255

@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+if User.where(email: 'hannahpearl@hotmail.com').empty?
+  user = User.create(email: 'hannahpearl@hotmail.com')
+  album = user.albums.create
+  25.times do
+    Coupon.create(album: album, code: rand.to_s[2..7])
+  end
+end
