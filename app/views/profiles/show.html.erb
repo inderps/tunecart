@@ -1,0 +1,101 @@
+<div class="jumbotron main">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-6 text-center">
+        <img id='profilePic' src="<%= asset_path'hannah.png'%>" />
+      </div>
+      <div class="col-md-6">
+        <h1 class="text-center">Hannah & Cash</h1>
+        <form class="download-form">
+          <div class="form-group">
+            <label for="couponCode">Download Music Album</label>
+            <div class="input-group input-group-lg">
+              <input type="text" class="form-control" placeholder="Coupon Code">
+              <span class="input-group-btn">
+                <button class="btn btn-primary" type="button">Download</button>
+              </span>
+            </div>
+          </div>
+          <p class="small">The downloaded file will be a zipped folder. You need a external app to extract zip files in Iphone</p>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2"></div>
+    <div class="col-md-8">
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Biography</h1>
+          <p>Lake Street Dive is an indie pop band that was founded in 2004 in Boston, Massachusetts. The band consists of Rachael Price (lead vocals), Mike "McDuck" Olson (trumpet, guitar), Bridget Kearney (upright bass), and Mike Calabrese (drums). They met while attending the New England Conservatory of Music in Boston. The band was named after a street with many dive bars in Olson's hometown of Minneapolis, Minnesota. The band tours in both North America and Europe from their base in Brooklyn</p>
+        </div>
+      </div>
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Contact Us</h1>
+          <ul class="contact">
+            <li><a href="tel:+4915225177209" class="btn btn-theme">+49-1522-5177209 (DE)</a></li>
+            <li><a href="mailto:hannahpearl@hotmail.com" class="btn btn-theme">hannahpearl@hotmail.com</a></li>
+            <li><a href="http://facebook.com/cashweijers" target="_blank" class="btn btn-theme">facebook.com/cashweijers</a></li>
+            <li><a href="http://facebook.com/hannahpearlmusic"  target="_blank" class="btn btn-theme">facebook.com/hannahpearlmusic</a></li>
+            <li><a href="http://www.hannahpearl.com" target="_blank" class="btn btn-theme">www.hannahpearl.com</a></li>
+          </ul>
+        </div>
+      </div>
+
+
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Find Us</h1>
+          <p>
+             <div id="map-canvas"></div>
+          </p>
+        </div>
+      </div>
+      <div class="panel panel-default">
+        <div class="panel-body">
+          <h1>Comments</h1>
+          <p>
+          <div id="disqus_thread"></div>
+          <script type="text/javascript">
+              /* * * CONFIGURATION VARIABLES * * */
+              var disqus_shortname = 'tunescart';
+
+              /* * * DON'T EDIT BELOW THIS LINE * * */
+              (function() {
+                  var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+                  dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+                  (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+              })();
+          </script>
+          <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+
+          </p>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+  </div>
+</div>
+<script src="https://maps.googleapis.com/maps/api/js"></script>
+<script>
+    function initialize() {
+        var myLatlng = new google.maps.LatLng(52.523681, 13.402309);
+        var mapCanvas = document.getElementById('map-canvas');
+        var mapOptions = {
+            center: myLatlng,
+            zoom: 14,
+            mapTypeId: google.maps.MapTypeId.ROADMAP
+        };
+        var map = new google.maps.Map(mapCanvas, mapOptions)
+        var marker = new google.maps.Marker({
+            position: myLatlng,
+            map: map,
+            title: 'Hannah & Cash'
+        });
+    }
+    google.maps.event.addDomListener(window, 'load', initialize);
+</script>
