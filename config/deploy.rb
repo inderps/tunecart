@@ -68,5 +68,5 @@ namespace :deploy do
 
   after :finishing, 'deploy:cleanup'
 
-  after :migrate, :db_seed
+  #after :migrate, :db_seed
 end
