@@ -1,4 +1,5 @@
-class ProfilesController < ApplicationController
-  def show
+class CouponsController < ApplicationController
+  def download
+    binding.pry
   end
 end

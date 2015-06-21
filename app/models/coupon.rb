@@ -1,6 +1,6 @@
-class User < ActiveRecord::Base
-has_many :player
-  belongs_to :friend, :class_name => Player
+require 'securerandom'
 
-  validates_uniqueness_of :friend_id, scope: :player_id
+class Coupon < ActiveRecord::Base
+  belongs_to :album
+  validates_uniqueness_of :code, scope: :album_id
 end
