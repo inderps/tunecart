@@ -6,13 +6,14 @@
       </div>
       <div class="col-md-6">
         <h1 class="text-center">Hannah & Cash</h1>
-        <form class="download-form" action="/coupons/download" method="post">
+        <form id='downloadForm' class="download-form" action="/coupons/download" method="post">
+          <input name="authenticity_token" type="hidden" value="<%= form_authenticity_token %>" />
           <div class="form-group">
             <label for="couponCode">Download Music Album</label>
             <div class="input-group input-group-lg">
-              <input type="text" class="form-control" placeholder="Coupon Code" required>
+              <input type="text" name='coupon_code' class="form-control" placeholder="Coupon Code" required>
               <span class="input-group-btn">
-                <button class="btn btn-primary" type="submit">Download</button>
+                <button id="downloadBtn" class="btn btn-primary ladda-button" data-style="expand-right" type="submit"><span class="ladda-label">Download</span></button>
               </span>
             </div>
           </div>

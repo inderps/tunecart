@@ -15,6 +15,34 @@
 //= require turbolinks
 //= require twitter/bootstrap
 //= require backstretch/backstretch.min.js
+//= require ladda/spin.min.js
+//= require ladda/ladda.min.js
+//= require bootbox/bootbox.min.js
 
 //= require_tree .
 
+$(document).ready(function(){
+    var ladda = Ladda.create($('#downloadBtn')[0]);
+    $('form#downloadForm').submit(function() {
+        var self = this;
+        bootbox.confirm("This is a one time download. Are you sure to download it?", function(result) {
+            if(result){
+                ladda.start();
+                var valuesToSubmit = $(self).serialize();
+                $.ajax({
+                    type: "POST",
+                    url: $(self).attr('action'), //sumbits it to the given url of the form
+                    data: valuesToSubmit,
+                    dataType: "JSON" // you want a difference between normal and ajax-calls, and json is standard
+                }).success(function(json){
+                    ladda.stop();
+                    window.location.href = json.url;
+                }).error(function(error){
+                    ladda.stop();
+                    bootbox.alert(error.responseJSON.message);
+                });
+            }
+        });
+        return false; // prevents normal behaviour
+    });
+});
