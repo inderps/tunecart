@@ -44,7 +44,7 @@ namespace :deploy do
 
   task :db_seed do
     on roles(:app) do
-      execute "cd #{current_path}; bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
+      execute "cd #{current_path}; ~/.rvm/bin/rvm default do bundle exec rake db:seed RAILS_ENV=#{fetch(:rails_env)}"
     end
   end
 
