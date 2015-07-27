@@ -1,6 +1,11 @@
 class ClostelSignupController < ApplicationController
   protect_from_forgery with: :null_session
 
+  def all
+    entries = ClostelSignup.all
+    render json: entries
+  end
+
   def visited
     if params[:ip]
       entry = ClostelSignup.where(ip_address: params[:ip]).first_or_create

@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   post '/coupons/download' => 'coupons#download'
 
   get 'clostel/visited' => 'clostel_signup#visited'
+  get 'clostel/all' => 'clostel_signup#all'
   post 'clostel/signup' => 'clostel_signup#signup'
 
 
