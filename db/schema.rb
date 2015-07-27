@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150621013531) do
+ActiveRecord::Schema.define(version: 20150727100801) do
 
   create_table "albums", force: :cascade do |t|
     t.integer "user_id", limit: 4
+  end
+
+  create_table "clostel_signups", force: :cascade do |t|
+    t.string  "version",       limit: 255
+    t.string  "ip_address",    limit: 255
+    t.integer "visited_count", limit: 4,   default: 0
+    t.string  "entered_email", limit: 255
+    t.string  "hostel_name",   limit: 255
+    t.string  "city",          limit: 255
+    t.string  "current_app",   limit: 255
+    t.string  "query",         limit: 255
   end
 
   create_table "coupons", force: :cascade do |t|

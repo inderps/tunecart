@@ -7,6 +7,10 @@ Rails.application.routes.draw do
   get '/:id' => 'profiles#show'
   post '/coupons/download' => 'coupons#download'
 
+  get 'clostel/visited' => 'clostel_signup#visited'
+  post 'clostel/signup' => 'clostel_signup#signup'
+
+
   # Example of regular route:
   #   get 'products/:id' => 'catalog#view'
 
